@@ -1,0 +1,98 @@
+@import '../../theme/theme1';
+
+.product-list {
+    h2 {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        @include render-text($text-3xl, $fw-bold , $c-dark);
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+
+        .col {
+            width: calc(100%/3);
+
+            @for $i from 0 to 6 {
+                .card-item-#{$i + 1} {
+                    animation-name: fadeInDown;
+                    animation-duration: 1s * ($i + 1);
+                }
+            }
+
+            @media screen and (max-width : 768px) {
+                width: 100%;
+            
+            }
+
+            .card {
+                box-shadow: 6px 6px 12px #e2ebfc;
+                padding: 30px;
+                margin-bottom: 30px;
+
+                // animation: fadeInDown;
+                // animation-duration: 1s;
+                overflow-y: hidden;
+                img {
+                    width: 100%;
+                }
+
+                .card-body {
+                    .prod-info {
+                        display: flex;
+                        justify-content: space-between;
+
+                        .product-name {
+                            @include render-text($text-base, $fw-semibold , $c-dark );
+
+                            .desc {
+                                @include render-text($text-base, $fw-light , $c-dark );
+                            }
+                        }
+
+                        .prod-price {
+                            @include render-text($text-base, $fw-semibold , $c-dark );
+                        }
+                    }
+
+                    .prod-ratting {
+                        display: flex;
+                        justify-content: space-between;
+
+                        .ratting {
+                            i {
+                                color: $c-warning;
+                            }
+                        }
+
+                        .prod-button {
+                            button {
+                                background: #f5f9fe;
+                                @include render-button(#f5f9fe, 8px 20px, none, border-radius, $text-xs , $fw-semibold , #2a73dd, #f5f9fe, #2a73dd);
+                                transition: .5s;
+                                box-shadow: 2px 2px 4px #e2ebfc, -2px -2px 4px #fff;
+                                letter-spacing: 0.03rem;
+
+                                i {}
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    @keyframes fadeInDown {
+        from {
+            transform: translateY(-200px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0px);
+            opacity: 1;
+        } 
+    }
+}

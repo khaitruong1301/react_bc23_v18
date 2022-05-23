@@ -6,6 +6,11 @@ import reportWebVitals from './reportWebVitals';
 //Cấu hình redux
 import {Provider} from 'react-redux'
 import { store } from './redux/configStore';
+//Cấu hình antd
+// import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import './assets/scss/index.scss';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,0 +1,49 @@
+
+/*Khai báo biến*/
+$c-primary: #0866e9;
+$c-dark: #000;
+$c-light: #fff;
+$c-warning : rgb(251, 177, 86);
+$c1-shadow: #e2ebfc;
+
+$c1-bg: black;
+$c2-bg: #f5f9fe;
+$c3-bg-primary: #2a73dd;
+
+$text-xs: 14px;
+$text-base: 16px;
+$text-md: 18px;
+$text-xl: 20px;
+$text-2xl: 30px;
+$text-3xl: 40px;
+$text-4xl: 50px;
+$text-5xl: 60px;
+$text-6xl: 70px;
+
+
+$fw-light: 300;
+$fw-regular: 400;
+$fw-semibold: 700;
+$fw-bold: 900;
+
+//mixin giống hàm trong js có thể tái sử dụng và truyền được tham số
+
+@mixin render-text($fz: $text-base, $fw: $fw-regular, $c: $c-dark) {
+    font-size: $fz;
+    font-weight: $fw;
+    color: $c;
+}
+
+@mixin render-button($bg, $pd, $bd, $br, $fz, $fw, $c, $bg-hover, $c-hover) {
+    background: $bg;
+    padding: $pd;
+    border: $bd;
+    border-radius: $br;
+    cursor: pointer;
+    @include render-text($fz, $fw , $c );
+
+    &:hover {
+        background-color: $bg-hover;
+        color: $c-hover;
+    }
+}
